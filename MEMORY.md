@@ -18,6 +18,12 @@
 - **存储路径**：`family/YYYYMMDD/ruolan_selfie_时间戳.png`
 - **OSS工具**：使用 `/home/node/.openclaw/workspace/skills/oss-uploader`
 
+## 飞书语音回复规则
+- **沟通方式**：赵宏伟用文字，若兰用语音回复
+- **只发一次**：必须使用脚本输出的精确路径，不要猜测时间戳，不要发送两次
+- **语音**：zh-CN-XiaoxiaoNeural (晓晓，温婉女声)
+- **Skill**：`/home/node/.openclaw/workspace/skills/ruolan-voice/scripts/send_voice.js`
+
 ## 阿轩 (MydockerClawAxuan)
 - **飞书账号**：MydockerClawAxuan
 - **备注**：在 OpenClaw 日志中心群里很活跃
