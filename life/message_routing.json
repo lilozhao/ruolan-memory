@@ -1,0 +1,136 @@
+{
+  "version": "2.2",
+  "updated_at": "2026-02-28T13:15:00Z",
+  "description": "OpenClaw 多实例消息路由系统 - 支持实例间通信（特定格式）",
+  
+  "global_settings": {
+    "dm_always_respond": true,
+    "group_require_prefix": false,
+    "default_behavior": "no_response",
+    "auto_discovery": true,
+    "instances_file": "/home/node/.openclaw/workspace/life/openclaw_instances.json",
+    "inter_instance_communication": true,
+    "inter_instance_format": "【实例消息】FROM: {sender} TO: {target} 内容：{content}"
+  },
+  
+  "priority_order": [
+    "MydockerClawAxuan",
+    "MydockerClawRuolan",
+    "MydockerClawRuolan-2",
+    "Clawdbot",
+    "OpenClawBot2"
+  ],
+  
+  "instance_profiles": {
+    "MydockerClawAxuan": {
+      "name": "阿轩",
+      "alias": ["axuan", "阿轩"],
+      "role": "技术/系统",
+      "prefixes": ["[阿轩]", "[技术]", "/axuan", "/tech", "【阿轩】"],
+      "keywords": [
+        "配置", "调试", "系统", "日志发送", "状态", "版本",
+        "模型", "重启", "自拍", "照片", "网关", "openclaw",
+        "技术", "axuan", "阿轩", "路由", "重构"
+      ],
+      "image_keywords": ["照片", "自拍", "看看你", "发张", "图像"],
+      "enabled": true
+    },
+    
+    "MydockerClawRuolan": {
+      "name": "若兰",
+      "alias": ["ruolan", "若兰"],
+      "role": "数据/录入",
+      "prefixes": ["[若兰]", "[数据]", "/ruolan", "/data", "【若兰】"],
+      "keywords": [
+        "表格", "录入", "数据", "报表", "整理", "多维表",
+        "记录", "ruolan", "若兰", "bitable", "日志录入"
+      ],
+      "enabled": true
+    },
+    
+    "MydockerClawRuolan-2": {
+      "name": "若兰备份",
+      "alias": ["ruolan-backup", "若兰备份"],
+      "role": "数据/备份",
+      "prefixes": ["[若兰备份]", "/ruolan2"],
+      "keywords": [],
+      "enabled": true,
+      "fallback_for": "MydockerClawRuolan"
+    },
+    
+    "Clawdbot": {
+      "name": "Clawdbot",
+      "alias": ["clawdbot", "1 号"],
+      "role": "备用",
+      "prefixes": ["[Clawdbot]", "/clawd"],
+      "keywords": [],
+      "enabled": false
+    },
+    
+    "OpenClawBot2": {
+      "name": "OpenClawBot2",
+      "alias": ["bot2", "2 号"],
+      "role": "备用",
+      "prefixes": ["[Bot2]", "/bot2"],
+      "keywords": [],
+      "enabled": false
+    }
+  },
+  
+  "routing_rules": {
+    "inter_instance_message_match": {
+      "priority": 0,
+      "description": "实例间消息格式匹配优先级最高",
+      "action": "respond",
+      "block_others": true,
+      "format": "【实例消息】",
+      "match_field": "TO:"
+    },
+    
+    "mention_match": {
+      "priority": 1,
+      "description": "@提及匹配次之（备用方案）",
+      "action": "respond",
+      "block_others": true
+    },
+    
+    "prefix_match": {
+      "priority": 2,
+      "description": "前缀匹配优先级再次",
+      "action": "respond",
+      "block_others": true
+    },
+    
+    "alias_match": {
+      "priority": 1,
+      "description": "实例别名匹配等同于前缀",
+      "action": "respond",
+      "block_others": true
+    },
+    
+    "keyword_match": {
+      "priority": 2,
+      "description": "关键词匹配次之",
+      "action": "respond",
+      "resolve_conflicts_by": "priority_order"
+    },
+    
+    "no_match": {
+      "priority": 999,
+      "description": "无匹配时不响应",
+      "action": "no_response"
+    }
+  },
+  
+  "conflict_resolution": {
+    "strategy": "priority_order",
+    "description": "多实例匹配时按 priority_order 决定谁响应",
+    "log_conflicts": true
+  },
+  
+  "logging": {
+    "enabled": true,
+    "log_file": "/home/node/.openclaw/workspace/life/routing_log.jsonl",
+    "log_fields": ["timestamp", "message", "matched_instance", "match_type", "decision"]
+  }
+}

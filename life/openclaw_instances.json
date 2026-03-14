@@ -1,0 +1,36 @@
+{
+  "log_group_id": "oc_4427768d0798b7545d4fb07b7518e710",
+  "last_sync": "2026-02-27T21:09:00+08:00",
+  "instances": [
+    {
+      "name": "Clawdbot",
+      "app_id": "cli_a9f18a6a3bf8dbd8",
+      "user_id": "ou_b822657fa19796e8309b5a814219dfda",
+      "status": "active"
+    },
+    {
+      "name": "OpenClawBot2",
+      "app_id": "cli_a90b624cd4385cc2",
+      "user_id": "ou_b2de604bf9870a5059980e274d51bde8",
+      "status": "active"
+    },
+    {
+      "name": "MydockerClawAxuan",
+      "app_id": "cli_a91ccc5bedb8dcee",
+      "user_id": "ou_253cedeefbe3f31cf4f112ecbbb08ee9",
+      "status": "active"
+    },
+    {
+      "name": "MydockerClawRuolan",
+      "app_id": "cli_a91c57cddd38dcd4",
+      "user_id": "ou_367633a7098f1dbf2834028401d928bc",
+      "status": "active"
+    },
+    {
+      "name": "MydockerClawRuolan-2",
+      "app_id": "cli_a912ea4509389cee",
+      "user_id": "ou_c6d66b80c2d40bbc8b22278e7d21a153",
+      "status": "active"
+    }
+  ]
+}

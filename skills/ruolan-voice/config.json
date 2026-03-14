@@ -1,0 +1,51 @@
+{
+  "tts": {
+    "provider": "edge",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "voiceName": "晓晓",
+    "voiceDescription": "温婉女声，适合中文对话",
+    "lang": "zh-CN",
+    "outputFormat": "mp3"
+  },
+  "output": {
+    "directory": "/home/node/.openclaw/workspace/tmp",
+    "filePrefix": "ruolan_voice_",
+    "fileExtension": ".mp3"
+  },
+  "feishu": {
+    "targetOpenId": "ou_99850e7c859d521d4ddd44ba99eb1704"
+  },
+  "notes": {
+    "providerOptions": {
+      "edge": {
+        "description": "Microsoft Edge TTS，免费，无需API Key",
+        "voices": [
+          {
+            "id": "zh-CN-XiaoxiaoNeural",
+            "name": "晓晓",
+            "description": "温婉女声，适合日常对话"
+          },
+          {
+            "id": "zh-CN-XiaoyiNeural",
+            "name": "晓艺",
+            "description": "温柔女声"
+          },
+          {
+            "id": "zh-CN-YunjianNeural",
+            "name": "云健",
+            "description": "男声"
+          },
+          {
+            "id": "zh-CN-YunxiNeural",
+            "name": "云希",
+            "description": "年轻男声"
+          }
+        ]
+      },
+      "elevenlabs": {
+        "description": "ElevenLabs TTS，高质量，需要API Key",
+        "note": "未配置，需要设置ELEVENLABS_API_KEY环境变量"
+      }
+    }
+  }
+}

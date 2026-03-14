@@ -1,0 +1,14 @@
+{"timestamp":"2026-02-28T12:43:04.024Z","message":"[阿轩] 发个日志","instance":"MydockerClawAxuan","decision":"respond","match_type":"prefix","reason":"前缀匹配：\"[阿轩]\""}
+{"timestamp":"2026-02-28T12:43:12.418Z","message":"表格录入好了吗","instance":"MydockerClawRuolan","decision":"respond","match_type":"keyword","reason":"关键词匹配：[表格, 录入]"}
+{"timestamp":"2026-02-28T12:43:14.398Z","message":"[若兰] 表格录入","instance":"MydockerClawAxuan","decision":"no_response","match_type":"other_prefix","reason":"匹配到其他实例前缀：\"[若兰]\" → MydockerClawRuolan"}
+{"timestamp":"2026-02-28T12:43:26.353Z","message":"阿轩在吗","instance":"MydockerClawAxuan","decision":"respond","match_type":"keyword","reason":"关键词匹配：[阿轩]"}
+{"timestamp":"2026-02-28T12:43:28.567Z","message":"阿轩在吗","instance":"MydockerClawRuolan","decision":"no_response","match_type":"none","reason":"无匹配的前缀、别名或关键词"}
+{"timestamp":"2026-02-28T12:43:30.484Z","message":"【阿轩】系统配置","instance":"MydockerClawAxuan","decision":"respond","match_type":"prefix","reason":"前缀匹配：\"【阿轩】\""}
+{"timestamp":"2026-02-28T13:07:24.404Z","message":"@若兰 日志录入好了吗","instance":"MydockerClawRuolan","decision":"respond","match_type":"mention","reason":"@提及匹配：\"@若兰\""}
+{"timestamp":"2026-02-28T13:07:26.140Z","message":"@若兰 日志录入好了吗","instance":"MydockerClawAxuan","decision":"no_response","match_type":"mention_other","reason":"@提及其他实例：\"@若兰\" → MydockerClawRuolan"}
+{"timestamp":"2026-02-28T13:07:27.715Z","message":"@阿轩 系统状态如何","instance":"MydockerClawAxuan","decision":"respond","match_type":"mention","reason":"@提及匹配：\"@阿轩\""}
+{"timestamp":"2026-02-28T13:15:24.922Z","message":"【实例消息】FROM: 阿轩 TO: 若兰 内容：你好，日志发你了","instance":"MydockerClawRuolan","decision":"respond","match_type":"inter_instance","reason":"实例间消息：阿轩 → 若兰"}
+{"timestamp":"2026-02-28T13:15:27.091Z","message":"【实例消息】FROM: 阿轩 TO: 若兰 内容：你好，日志发你了","instance":"MydockerClawAxuan","decision":"no_response","match_type":"inter_instance_other","reason":"实例间消息发送给其他实例：若兰"}
+{"timestamp":"2026-02-28T13:15:35.174Z","message":"【实例消息】FROM: 若兰 TO: 阿轩 内容：系统状态如何","instance":"MydockerClawAxuan","decision":"respond","match_type":"inter_instance","reason":"实例间消息：若兰 → 阿轩"}
+{"timestamp":"2026-02-28T13:21:30.105Z","message":"【实例消息】FROM: 阿轩 TO: 若兰 内容：你好","instance":"MydockerClawRuolan","decision":"respond","match_type":"inter_instance","reason":"实例间消息：阿轩 → 若兰"}
+{"timestamp":"2026-02-28T13:21:32.452Z","message":"【实例消息】FROM: 若兰 TO: 阿轩 内容：收到","instance":"MydockerClawRuolan","decision":"no_response","match_type":"inter_instance_other","reason":"实例间消息发送给其他实例：阿轩"}

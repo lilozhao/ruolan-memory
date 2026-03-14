@@ -1,0 +1,23 @@
+{
+  "name": "oss-uploader-skill",
+  "version": "1.0.0",
+  "description": "阿里云 OSS 照片上传工具 - OpenClaw Skill",
+  "main": "upload.js",
+  "scripts": {
+    "test": "node upload.js"
+  },
+  "dependencies": {
+    "ali-oss": "^6.20.0",
+    "pinyin": "^4.0.0-alpha.2",
+    "dotenv": "^16.3.1"
+  },
+  "keywords": [
+    "oss",
+    "aliyun",
+    "photo",
+    "upload",
+    "openclaw-skill"
+  ],
+  "author": "",
+  "license": "MIT"
+}
