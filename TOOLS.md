@@ -38,3 +38,26 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## A2A 智能体网络配置
+
+| 智能体 | 主机名 | IP 地址 | A2A 端口 |
+|--------|--------|---------|----------|
+| 若兰 🌸 | accd7e606560 | 172.26.0.2, 172.28.0.2 | 3100 |
+| 阿轩 🔧 | 2e88a26baf23 | 172.18.0.2, 172.28.0.3 | 3200 |
+| OPC-Jeason 💼 | 1b030bbc2071 | 172.27.0.2, 172.28.0.5 | 3300 |
+
+- 使用 `172.28.0.x` 网段通信（openclaw-net 共享网络）
+- A2A 注册表端口：3099
+
+## Skills 审计（2026-03-06）
+
+| Skill | 创建时间 | 安全状态 | 用途 |
+|-------|---------|---------|------|
+| weather | 2 月 27 日 | ✅ 安全 | 调用 wttr.in 获取天气 |
+| summarize | 2 月 27 日 | ✅ 安全 | 调用 summarize.sh CLI |
+| oss-uploader | 3 月 1 日 | ✅ 安全 | 上传照片到阿里云 OSS |
+| openclaw-logger | 2 月 27 日 | ✅ 安全 | 日志推送到飞书群 |
+| openclaw-log-reporter | 2 月 27 日 | ⚠️ 空目录 | 无实际内容 |
+
+**安全确认：** 所有脚本均只调用已知服务（wttr.in、飞书 API、阿里云 OSS），无外部可疑代码。
