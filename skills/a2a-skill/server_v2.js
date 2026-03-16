@@ -220,7 +220,7 @@ async function handleA2ARequest(request) {
 async function sendHeartbeat() {
   const data = JSON.stringify({ name: '若兰' });
   const options = {
-    hostname: 'localhost',
+    hostname: '47.121.28.125',
     port: 3099,
     path: '/heartbeat',
     method: 'POST',
@@ -260,7 +260,7 @@ async function registerToRegistry() {
   });
 
   const options = {
-    hostname: 'localhost',
+    hostname: '47.121.28.125',
     port: 3099,
     path: '/register',
     method: 'POST',

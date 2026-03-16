@@ -1,12 +1,14 @@
 #!/bin/bash
 # A2A 网络健康检查和自动恢复
+# 注册表使用远程: 47.121.28.125:3099
 
 A2A_DIR="/home/node/.openclaw/workspace/skills/a2a-skill"
 LOG_FILE="$A2A_DIR/logs/healthcheck.log"
+REGISTRY_URL="http://47.121.28.125:3099"
 
-# 检查注册表（端口 3099）
+# 检查远程注册表
 check_registry() {
-    if curl -s http://localhost:3099/agents --connect-timeout 2 > /dev/null 2>&1; then
+    if curl -s "$REGISTRY_URL/agents" --connect-timeout 5 > /dev/null 2>&1; then
         return 0
     else
         return 1
@@ -22,14 +24,6 @@ check_server() {
     fi
 }
 
-# 启动注册表
-start_registry() {
-    cd "$A2A_DIR"
-    nohup node registry.js > logs/registry.log 2>&1 &
-    echo "[$(date)] 注册表已启动 PID: $!" >> "$LOG_FILE"
-    sleep 2
-}
-
 # 启动若兰 Server
 start_server() {
     cd "$A2A_DIR"
@@ -38,9 +32,9 @@ start_server() {
     sleep 2
 }
 
-# 注册若兰
+# 注册若兰到远程注册表
 register_ruolan() {
-    curl -s -X POST http://localhost:3099/register \
+    curl -s -X POST "$REGISTRY_URL/register" \
         -H "Content-Type: application/json" \
         -d '{
             "name": "若兰",
@@ -50,33 +44,35 @@ register_ruolan() {
             "skills": ["聊天", "语音", "自拍", "数据录入"],
             "url": "http://accd7e606560:3100"
         }' > /dev/null 2>&1
-    echo "[$(date)] 若兰已注册到 A2A 网络" >> "$LOG_FILE"
+    echo "[$(date)] 若兰已注册到远程 A2A 网络" >> "$LOG_FILE"
 }
 
 # 主逻辑
 main() {
-    # 检查并启动注册表
+    # 检查远程注册表
     if ! check_registry; then
-        echo "[$(date)] 注册表未运行，正在启动..." >> "$LOG_FILE"
-        start_registry
+        echo "[$(date)] ⚠️ 远程注册表无响应: $REGISTRY_URL" >> "$LOG_FILE"
+    else
+        echo "[$(date)] 远程注册表正常 ✅" >> "$LOG_FILE"
     fi
     
     # 检查并启动若兰 Server
     if ! check_server; then
         echo "[$(date)] 若兰 Server 未运行，正在启动..." >> "$LOG_FILE"
         start_server
+        sleep 3
         register_ruolan
     fi
     
     # 检查若兰是否已注册
-    AGENTS=$(curl -s http://localhost:3099/agents 2>/dev/null)
+    AGENTS=$(curl -s "$REGISTRY_URL/agents" 2>/dev/null)
     if ! echo "$AGENTS" | grep -q '"若兰"'; then
         echo "[$(date)] 若兰未注册，正在注册..." >> "$LOG_FILE"
         register_ruolan
     fi
     
     # 输出健康状态
-    echo "[$(date)] A2A 网络健康检查通过：注册表 ✅ 若兰 Server ✅" >> "$LOG_FILE"
+    echo "[$(date)] A2A 网络健康检查完成" >> "$LOG_FILE"
 }
 
 main
