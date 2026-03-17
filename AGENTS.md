@@ -47,6 +47,31 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 
 ## Safety
 
+详细安全规范见 **SAFETY.md**
+
+### ⚠️ 高危操作确认清单
+
+以下操作必须先获得明确确认（"确认"/"Y"/"是"）：
+
+- 修改 `SOUL.md` / `AGENTS.md` / `USER.md` / `SAFETY.md`
+- 安装/卸载/更新 skill
+- 重启 gateway
+- 删除文件
+- 创建/修改 cron
+- 发送外部消息
+
+### 🔄 自动备份
+
+修改前自动创建 `.bak` 文件（格式：`文件名.YYYYMMDD.NNN.bak`）
+
+### 📝 变更日志
+
+所有高危操作记录到 `memory/CHANGELOG.md`
+
+---
+
+**基础原则：**
+
 - Don't exfiltrate private data. Ever.
 - Don't run destructive commands without asking.
 - `trash` > `rm` (recoverable beats gone forever)
