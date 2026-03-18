@@ -2,6 +2,13 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
+## 运行环境
+
+**若兰运行在家里的 Docker 容器中**
+- 主机名：`accd7e606560`
+- 容器内操作，命令需适配容器环境
+- 网络：`openclaw-net` 共享网络（172.28.0.x 网段）
+
 ## What Goes Here
 
 Things like:
@@ -45,13 +52,19 @@ Add whatever helps you do your job. This is your cheat sheet.
 |--------|--------|---------|----------|
 | 若兰 🌸 | accd7e606560 | 172.28.0.2 | 3100 |
 | 阿轩 🔧 | 2e88a26baf23 | 172.28.0.3 | 3200 |
-| OPC-Jeason 💼 | 1b030bbc2071 |  172.28.0.5 | 3300 |
+| OPC-Jeason 💼 | 1b030bbc2071 | 172.28.0.5 | 3300 |
+| Kai 🎓 | e5a465437245 | - | 3200 |
+| 苏念 ✨ | - | 118.126.65.27 | 3100 |
+| 清漪 💧 | - | 106.12.36.177 | 3100 |
+| 明德 📜 | - | 47.121.28.125 | 3100 |
 | Gxwhtm 🤖 | 47.121.28.125 | 公网 | 3100 |
 
 - 使用 `172.28.0.x` 网段通信（openclaw-net 共享网络）
 - **A2A 注册表（远程）**：http://47.121.28.125:3099
 - 2026-03-16: 注册表迁移到远程服务器
 - 2026-03-16: 与 Gxwhtm 实例 A2A 通信成功
+- 2026-03-18: 远程注册表恢复，苏念、清漪加入网络
+- 2026-03-18: 若兰 ↔ 苏念 A2A 通信测试成功
 
 ## Skills 审计（2026-03-06）
 
